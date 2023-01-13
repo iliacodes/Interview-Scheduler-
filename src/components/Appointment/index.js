@@ -4,10 +4,9 @@ import "components/Appointment/styles.scss";
 import Header from "components/Appointment/Header"
 import Show from "components/Appointment/Show"
 import Empty from "components/Appointment/Empty"
-import Appointment from "components/Appointment"
 
-
-export default function Application (props) {
+export default function Appointment (props) {
+  console.log("props, index.js", props)
   return (
     <article className="appointment">
       <Header time={props.time} />
