@@ -1,10 +1,14 @@
-import React from "react";
 import React, { useState } from "react";
 import "components/Application.scss";
+import DayList from "components/DayList"
+import Header from "components/Appointment/Header"
+import Show from "components/Appointment/Show"
+import Empty from "components/Appointment/Empty"
+// import "components/Appointment"
 
 
 export default function Application(props) {
-  const [day, setDay] = useState("Monday")
+  const [value, onChange] = useState("Monday")
   const days = [
     {
       id: 1,
@@ -34,8 +38,8 @@ export default function Application(props) {
         <nav className="sidebar__menu" >
           <DayList
             days={days}
-            day={"Monday"}
-            setDay={setDay}
+            value={value}
+            onChange={onChange}
           />
         </nav>
         <img
@@ -45,7 +49,9 @@ export default function Application(props) {
         />
       </section>
       <section className="schedule">
-        {/* Replace this with the schedule elements durint the "The Scheduler" activity. */}
+        {/*Object.values(appointments).map(() => {
+
+        }) */ }
       </section>
     </main>
   );
