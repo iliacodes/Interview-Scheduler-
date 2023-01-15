@@ -196,7 +196,7 @@ storiesOf("Appointment", module)
   ))
   .add("Appointment Empty", () => (
     <Fragment>
-      <Appointment interview={1} time="4pm" />
+      <Appointment id={1} time="4pm" />
       <Appointment time="5pm" />
     </Fragment>
   ))
