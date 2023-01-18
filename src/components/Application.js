@@ -14,11 +14,53 @@ export default function Application(props) {
     interviewers: {}
   });
   
-    const setDay = (day) => {setState(prev => ({ ...prev, day }))};
-    const dailyInterviewers = getInterviewersForDay(state, state.day);
-    const dailyAppointments = getAppointmentsForDay(state, state.day)
+  const setDay = (day) => {setState(prev => ({ ...prev, day }))};
+  const dailyInterviewers = getInterviewersForDay(state, state.day);
+  const dailyAppointments = getAppointmentsForDay(state, state.day);
+  
+  const bookInterview = async function (id, interview) {
+    const appointment = {
+      ...state.appointments[id],
+      interview: { ...interview }
+    };
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment
+    };
+    try {
+      await axios.put(`${port}/api/appointments/${id}`, { interview });
+      setState({
+        ...state,
+        appointments
+      });
+    } catch (error) {
+      return console.log(error);
+    }
+  }
+
+  const cancelInterview = async function (id) {
+    const appointment = {
+      ...state.appointments[id],
+      interview: null
+    }
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment
+    };
+    try {
+      await axios.delete(`${port}/api/appointments/${id}`);
+      setState({
+        ...state,
+        appointments
+      });
+    } catch (error) {
+      return console.log(error);
+    }
+  }
+
 
   // const appointments = getAppointmentsForDay(state, state.day)
+
 
   
   
@@ -49,6 +91,9 @@ export default function Application(props) {
         time={appointment.time}
         interview={interview}
         interviewers={dailyInterviewers}
+        bookInterview={bookInterview}
+        cancelInterview={cancelInterview}
+
       />
     );
   });
