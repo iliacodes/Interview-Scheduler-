@@ -1,5 +1,4 @@
-import React from "react";
-
+import React from 'react';
 import "components/Appointment/styles.scss";
 
 import Empty from './Empty';
@@ -9,20 +8,18 @@ import Show from './Show';
 import useVisualMode from '../hooks/useVisualMode';
 import Status from "./Status";
 import Confirm from "./Confirm"
-//import Empty from "./Error"
 
 export default function Appointment(props) {
 
     const CREATE = "CREATE";
     const EMPTY = "EMPTY";
-    const SHOW = "SHOW";
     const SAVING = "SAVING";
     const CONFIRM = "CONFIRM";
     const DELETING = "DELETING";
+    const SHOW = "SHOW";
 
     const { mode, transition, back } = useVisualMode(
       props.interview ? SHOW : EMPTY
-
     );
 
     const save = function(name, interviewer) {
@@ -41,18 +38,16 @@ export default function Appointment(props) {
 
     const confirm = () => transition(CONFIRM);
 
-    const deleteAppointment = function (id) {
+    const deleteAppointment = function () {
       transition(DELETING)
-      props.deleteInterview(props.id)
+      props.cancelInterview(props.id)
       .then(() => {
         transition(EMPTY)
       })
       .catch((error) => console.log(error))
     };
 
-
   return (
-
     <article className="appointment">
       <Header time={props.time} />
       {mode === EMPTY && (
