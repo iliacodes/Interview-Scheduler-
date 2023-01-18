@@ -19,6 +19,9 @@ export default function Application(props) {
   const dailyInterviewers = getInterviewersForDay(state, state.day);
   const dailyAppointments = getAppointmentsForDay(state, state.day);
 
+  console.log("dailyAppointments,", dailyAppointments, typeof dailyAppointments)
+  console.log("day,", state.day, typeof state.day)
+
 
   useEffect(() => {
     Promise.all([

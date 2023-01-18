@@ -23,3 +23,24 @@ export function getInterview(state, interview) {
     const data = state.interviewers[interview.interviewer]
     return { ...interview, interviewer: data };
 }
+
+export function decreaseSpots(state) {
+  return state.days.map(day => {
+    if (day.name === state.day) {
+      return {...day, spots: day.spots - 1}
+    } else {
+      return day;
+    }
+  });
+}
+
+export function increaseSpots(state) {
+  return state.days.map(day => {
+    if (day.name === state.day) {
+      return {...day, spots: day.spots + 1};
+    } else {
+      return day;
+    }
+  });
+}
+

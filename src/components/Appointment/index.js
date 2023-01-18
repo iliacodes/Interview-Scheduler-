@@ -5,7 +5,7 @@ import Empty from './Empty';
 import Form from './Form';
 import Header from './Header';
 import Show from './Show';
-import useVisualMode from '../hooks/useVisualMode';
+import useVisualMode from 'components/hooks/useVisualMode';
 import Status from "./Status";
 import Confirm from "./Confirm";
 import Error from "./Error";
@@ -64,7 +64,7 @@ export default function Appointment(props) {
       {mode === SHOW && (
         <Show
           student={props.interview.student}
-          interviewer={props.interview.name}
+          interviewer={props.interview.interviewer.name}
           onDelete={confirm}
           onEdit={edit}
         />
