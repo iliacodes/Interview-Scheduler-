@@ -50,7 +50,13 @@ npm run storybook
 
 # Project View
 
-![]()
+![Page view.](https://github.com/iliacodes/Interview-Scheduler-/blob/master/docs/Screenshot%202023-01-19%20035702.png)
+
+![Editing an appointment.](https://github.com/iliacodes/Interview-Scheduler-/blob/master/docs/Screenshot%202023-01-19%20035740.png)
+
+![Saving Changes.](https://github.com/iliacodes/Interview-Scheduler-/blob/master/docs/Screenshot%202023-01-19%20035702.png)
+
+![](https://github.com/iliacodes/Interview-Scheduler-/blob/master/docs/Screenshot%202023-01-19%20035702.png)
 
 
 
