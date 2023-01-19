@@ -51,27 +51,22 @@ npm run storybook
 # Project View
 
 ![Page view.](https://github.com/iliacodes/Interview-Scheduler-/blob/master/docs/Screenshot%202023-01-19%20035702.png)
+</br>
 
 ![Editing an appointment.](https://github.com/iliacodes/Interview-Scheduler-/blob/master/docs/Screenshot%202023-01-19%20035740.png)
+</br>
 
 ![Saving Changes.](https://github.com/iliacodes/Interview-Scheduler-/blob/master/docs/Screenshot%202023-01-19%20035702.png)
-
-![](https://github.com/iliacodes/Interview-Scheduler-/blob/master/docs/Screenshot%202023-01-19%20035702.png)
-
-
-
-
-
-
-
-
-</br>
-</br></br>
-</br></br>
-</br></br>
 </br>
 
-## Built With
+![Display of changes.](https://github.com/iliacodes/Interview-Scheduler-/blob/master/docs/Screenshot%202023-01-19%20041935.png)
+
+
+
+</br></br>
+
+
+# Built With
 - [React](https://reactjs.org/) - The view library used
 - [PostgreSQL](https://www.postgresql.org/) - Database
 - [Jest](https://jestjs.io/) - Test Framework
