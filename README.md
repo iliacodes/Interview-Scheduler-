@@ -1,16 +1,14 @@
 # Interview Scheduler
 ### Meet Interview Scheduler, a sleek and modern client application that utilizes the power of the React view library to streamline the scheduling process. Built as a single page application (SPA), Interview Scheduler is designed for ease of use and efficiency. Data is securely persisted by the API server using a robust PostgreSQL database, while the client communicates seamlessly with the server over HTTP using the JSON format. 
 </br>
-</br>
 
 ### Rest easy knowing that the development of this project included thorough testing using Jest, ensuring a stable and reliable experience for all users. Upgrade your scheduling game with Interview Scheduler.
-</br>
 </br>
 
 # Setup
 ## 1. Clone the repository
 ```sh
-git clone https://github.com/<your-username>/interview-scheduler.git
+git clone https://github.com/<iliacodes>/interview-scheduler.git
 ```
 </br>
 
@@ -56,7 +54,7 @@ npm run storybook
 ![Editing an appointment.](https://github.com/iliacodes/Interview-Scheduler-/blob/master/docs/Screenshot%202023-01-19%20035740.png)
 </br>
 
-![Saving Changes.](https://github.com/iliacodes/Interview-Scheduler-/blob/master/docs/Screenshot%202023-01-19%20035702.png)
+![Saving Changes.](https://github.com/iliacodes/Interview-Scheduler-/blob/master/docs/Screenshot%202023-01-19%20035814.png)
 </br>
 
 ![Display of changes.](https://github.com/iliacodes/Interview-Scheduler-/blob/master/docs/Screenshot%202023-01-19%20041935.png)
