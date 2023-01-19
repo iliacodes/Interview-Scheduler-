@@ -137,8 +137,7 @@ it("calls onCancel and resets the input field", () => {
   });
   
   fireEvent.click(getByText("Cancel"));
-  console.log(prettyDOM(container))
-
+  
   expect(queryByText(/student name cannot be blank/i)).toBeNull();
 
   expect(getByPlaceholderText("Enter Student Name")).toHaveValue("");

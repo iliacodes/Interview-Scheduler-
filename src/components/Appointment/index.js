@@ -10,6 +10,8 @@ import Status from "./Status";
 import Confirm from "./Confirm";
 import Error from "./Error";
 
+
+
 export default function Appointment(props) {
 
   const CREATE = "CREATE";
@@ -26,6 +28,9 @@ export default function Appointment(props) {
     props.interview ? SHOW : EMPTY
   );
 
+
+
+  //function to save form to DB
   const save = function(name, interviewer) {
     const interview = {
       student: name,
@@ -42,6 +47,8 @@ export default function Appointment(props) {
 
   const confirm = () => transition(CONFIRM);
 
+
+  //function to delete existing appointment
   const deleteAppointment = function() {
     transition(DELETING, true);
     props.cancelInterview(props.id)
@@ -53,6 +60,9 @@ export default function Appointment(props) {
 
   const edit = () => transition(EDIT);
 
+
+
+  // JSX for Appointment component
   return (
     <article className="appointment" data-testid="appointment">
       <Header time={props.time} />
