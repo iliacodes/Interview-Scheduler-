@@ -8,7 +8,7 @@
 # Setup
 ## 1. Clone the repository
 ```sh
-git clone https://github.com/<iliacodes>/interview-scheduler.git
+git clone https://github.com/iliacodes/interview-scheduler.git
 ```
 </br>
 
