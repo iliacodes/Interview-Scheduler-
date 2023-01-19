@@ -54,7 +54,7 @@ export default function Appointment(props) {
   const edit = () => transition(EDIT);
 
   return (
-    <article className="appointment">
+    <article className="appointment" data-testid="appointment">
       <Header time={props.time} />
       {mode === EMPTY && (
         <Empty

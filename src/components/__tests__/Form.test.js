@@ -1,8 +1,6 @@
 import React from "react";
 
-import { render, cleanup } from "@testing-library/react";
-
-import { fireEvent } from "@testing-library/react";
+import { render, cleanup, fireEvent, prettyDOM } from "@testing-library/react";
 
 import Form from "components/Appointment/Form";
 
@@ -27,7 +25,8 @@ describe("Form", () => {
 
   it("renders with initial student name", () => {
     const { getByTestId } = render(
-      <Form interviewers={interviewers} />
+      <Form interviewers={interviewers}
+      student="Lydia Miller-Jones" />
     );
     expect(getByTestId("student-name-input")).toHaveValue("Lydia Miller-Jones");
   });
@@ -122,7 +121,7 @@ it("submits the name entered by the user", () => {
 
 it("calls onCancel and resets the input field", () => {
   const onCancel = jest.fn();
-  const { getByText, getByPlaceholderText, queryByText } = render(
+  const { container, getByText, getByPlaceholderText, queryByText } = render(
     <Form
       interviewers={interviewers}
       name="Lydia Mill-Jones"
@@ -136,12 +135,14 @@ it("calls onCancel and resets the input field", () => {
   fireEvent.change(getByPlaceholderText("Enter Student Name"), {
     target: { value: "Lydia Miller-Jones" }
   });
-
+  
   fireEvent.click(getByText("Cancel"));
+  console.log(prettyDOM(container))
 
   expect(queryByText(/student name cannot be blank/i)).toBeNull();
 
   expect(getByPlaceholderText("Enter Student Name")).toHaveValue("");
 
   expect(onCancel).toHaveBeenCalledTimes(1);
+
 });

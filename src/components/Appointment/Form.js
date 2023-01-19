@@ -62,3 +62,5 @@ export default function Form(props) {
     </main>
   );
 }
+
+// make reset function clear error message

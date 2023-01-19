@@ -7,7 +7,6 @@ import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "./he
 import useApplicationData from "./hooks/useApplicationData";
 
 export default function Application(props) {
-  const port = "http://localhost:8001";
   const {
     state,
     setState,
@@ -19,18 +18,14 @@ export default function Application(props) {
   const dailyInterviewers = getInterviewersForDay(state, state.day);
   const dailyAppointments = getAppointmentsForDay(state, state.day);
 
-  console.log("dailyAppointments,", dailyAppointments, typeof dailyAppointments)
-  console.log("day,", state.day, typeof state.day)
-
-
   useEffect(() => {
     Promise.all([
       axios
-      .get(`${port}/api/days`),
+      .get(`/api/days`),
       axios
-      .get(`${port}/api/appointments`),
+      .get(`/api/appointments`),
       axios
-      .get(`${port}/api/interviewers`)
+      .get(`/api/interviewers`)
     ]) 
     .then(([days, appointments, interviewers]) => {
       setState(prev => ({ ...prev, days: days.data, appointments: appointments.data, interviewers: interviewers.data }));
