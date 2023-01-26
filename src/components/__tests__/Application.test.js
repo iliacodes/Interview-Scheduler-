@@ -110,23 +110,23 @@ it("shows the save error when failing to save an appointment", async () => {
 
 // ERROR_DELETE test.
 it("shows the delete error when failing to delete an existing appointment", async () => {
-  axios.delete.mockRejectedValueOnce()
-    // 1. render the Application.
-    const { container } = render(<Application />);
+  axios.delete.mockRejectedValueOnce();
+  // 1. render the Application.
+  const { container } = render(<Application />);
 
-    // 2. wait until the text "Archie Cohen" is displayed.
-    await waitForElement(() => getByText(container, "Archie Cohen"));
+  // 2. wait until the text "Archie Cohen" is displayed.
+  await waitForElement(() => getByText(container, "Archie Cohen"));
 
-    // 3. get all appointments 
-    const appointment = getAllByTestId(container, "appointment").find(appointment => queryByText(appointment, "Archie Cohen"));
+  // 3. get all appointments 
+  const appointment = getAllByTestId(container, "appointment").find(appointment => queryByText(appointment, "Archie Cohen"));
 
-    // 4. click the delete button
-    fireEvent.click(queryByAltText(appointment, "Delete"));
+  // 4. click the delete button
+  fireEvent.click(queryByAltText(appointment, "Delete"));
 
-    // 5. expect to be prompted to confirm deletion.
-    expect(getByText(appointment, "Please confirm you would like to delete this appointment.")).toBeInTheDocument();
+  // 5. expect to be prompted to confirm deletion.
+  expect(getByText(appointment, "Please confirm you would like to delete this appointment.")).toBeInTheDocument();
 
-    // 6. click the confirm button.
-    fireEvent.click(getByText(appointment, "Confirm"));
+  // 6. click the confirm button.
+  fireEvent.click(getByText(appointment, "Confirm"));
 
-})
+});

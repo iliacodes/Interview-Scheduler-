@@ -3,7 +3,7 @@
 */
 import React from "react";
 import { fireEvent, waitForElement } from "@testing-library/react";
-import '../Appointment'
+import '../Appointment';
 
 /*
   We import our helper functions from the react-testing-library

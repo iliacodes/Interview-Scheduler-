@@ -6,14 +6,20 @@
 </br>
 
 # Setup
-## 1. Clone the repository
+## 1. Clone the ``` interview-scheduler ``` repository
 ```sh
 git clone https://github.com/iliacodes/interview-scheduler.git
 ```
+
 </br>
 
+## 2. Clone the ```schedular-api``` repository
+```sh
+git clone https://github.com/iliacodes/scheduler-api
+```
+</br>
 
-## 2. Install dependencies
+## 3. Install dependencies in the ``` interview-scheduler/``` repository
 ```sh
 npm install
 ```
@@ -42,7 +48,17 @@ npm test
 npm run storybook
 ```
 </br>
-</br>
+
+## 4. Install dependencies in the ``` scheduler-api/ ``` repository
+
+```sh
+npm install
+```
+
+## Running the server 
+```sh
+npm start
+```
 
 
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import InterviewerList from "components/InterviewerList"
-import Button from "components/Button"
+import InterviewerList from "components/InterviewerList";
+import Button from "components/Button";
 
 export default function Form(props) {
   const [student, setStudent] = useState(props.student || "");
@@ -8,31 +8,31 @@ export default function Form(props) {
   const [error, setError] = useState("");
 
   // resets form to original state.
-  const reset = () => {
+  const reset = function() {
     setStudent('');
     setInterviewer(null);
     setError('');
-  }
+  };
 
   // Cancel button calls reset function and clears appointment slot.
-  const cancel = () => {
+  const cancel = function() {
     reset();
     props.onCancel();
-  }
+  };
 
   //Error handling for Form submission.
-  function validate() {
+  const validate = function() {
     if (student === "") {
       setError("Student name cannot be blank.");
       return;
     }
 
-    if (interviewer === null){
-      setError("Please select an interviewer.")
+    if (interviewer === null) {
+      setError("Please select an interviewer.");
       return;
     }
 
-    setError("")
+    setError("");
     props.onSave(student, interviewer);
   }
 
@@ -52,9 +52,9 @@ export default function Form(props) {
         </form>
         <section className="appointment__validation">{error}</section>
         <InterviewerList
-        interviewers={props.interviewers}
-        value={interviewer}
-        onChange={setInterviewer}
+          interviewers={props.interviewers}
+          value={interviewer}
+          onChange={setInterviewer}
         />
       </section>
       <section className="appointment__card-right">

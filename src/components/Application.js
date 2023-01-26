@@ -3,7 +3,7 @@ import axios from "axios";
 import "components/Application.scss";
 import DayList from "components/DayList";
 import Appointment from "components/Appointment";
-import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "./helpers/selectors";
+import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "./hooks/helpers/selectors";
 import useApplicationData from "./hooks/useApplicationData";
 
 export default function Application(props) {
@@ -21,15 +21,15 @@ export default function Application(props) {
   useEffect(() => {
     Promise.all([
       axios
-      .get(`/api/days`),
+        .get(`/api/days`),
       axios
-      .get(`/api/appointments`),
+        .get(`/api/appointments`),
       axios
-      .get(`/api/interviewers`)
-    ]) 
-    .then(([days, appointments, interviewers]) => {
-      setState(prev => ({ ...prev, days: days.data, appointments: appointments.data, interviewers: interviewers.data }));
-    })
+        .get(`/api/interviewers`)
+    ])
+      .then(([days, appointments, interviewers]) => {
+        setState(prev => ({ ...prev, days: days.data, appointments: appointments.data, interviewers: interviewers.data }));
+      });
   }, [setState]);
 
 
@@ -73,7 +73,7 @@ export default function Application(props) {
         />
       </section>
       <section className="schedule">
-        { schedule }
+        {schedule}
         <Appointment key="last" time="5pm" />
       </section>
     </main>

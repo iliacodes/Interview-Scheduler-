@@ -1,8 +1,8 @@
-import axios from 'axios'
+import axios from 'axios';
 import { useState } from "react";
-import { increaseSpots, decreaseSpots } from "../helpers/selectors";
+import { increaseSpots, decreaseSpots } from "./helpers/selectors";
 
-export default function useApplicationData () {
+export default function useApplicationData() {
   const [state, setState] = useState({
     day: "Monday",
     days: [],
@@ -11,7 +11,7 @@ export default function useApplicationData () {
   });
 
   const setDay = (day) => { setState(prev => ({ ...prev, day })); };
-  
+
 
 
   // function to save the data to the API 
@@ -29,7 +29,7 @@ export default function useApplicationData () {
 
     //decreases amount of spots remaining from adding an appointment.
     // => components/helpers/selectors.js
-    const decrease = decreaseSpots(state);
+    const days = decreaseSpots(state);
 
     //Put request to database to push bookInterview data. 
     return axios.put(`/api/appointments/${id}`, { interview })
@@ -37,7 +37,7 @@ export default function useApplicationData () {
         setState({
           ...state,
           appointments,
-          decrease
+          days
         });
       });
   };
@@ -56,7 +56,7 @@ export default function useApplicationData () {
 
     // increases the amount of spots remaining from deleting an appointment.
     // => components/helpers/selectors.js
-    const increase = increaseSpots(state);
+    const days = increaseSpots(state);
 
     //Delete request to database to pop cancelinterview data.
     try {
@@ -64,12 +64,12 @@ export default function useApplicationData () {
       setState({
         ...state,
         appointments,
-        increase,
+        days
       });
     } catch (error) {
       return console.log(error);
     }
   };
 
-  return {state, setState, setDay, bookInterview, cancelInterview }
+  return { state, setState, setDay, bookInterview, cancelInterview };
 }

@@ -26,7 +26,7 @@ describe("Form", () => {
   it("renders with initial student name", () => {
     const { getByTestId } = render(
       <Form interviewers={interviewers}
-      student="Lydia Miller-Jones" />
+        student="Lydia Miller-Jones" />
     );
     expect(getByTestId("student-name-input")).toHaveValue("Lydia Miller-Jones");
   });
@@ -49,10 +49,10 @@ it("validates that the student name is not blank", () => {
 
   /* 2. Render the Form with interviewers and the onSave mock function passed as an onSave prop, the student prop should be blank or undefined */
   const { getByText } = render(
-    <Form interviewers={interviewers} onSave={onSave}/>
+    <Form interviewers={interviewers} onSave={onSave} />
   );
 
-   /* 3. Click the save button */
+  /* 3. Click the save button */
   fireEvent.click(getByText("Save"));
 
 
@@ -73,8 +73,8 @@ it("validates that the interviewer cannot be null", () => {
 
   /* 3. Click the save button */
   fireEvent.click(getByText("Save"));
-  
-  
+
+
   expect(getByText(/please select an interviewer/i)).toBeInTheDocument();
   expect(onSave).not.toHaveBeenCalled();
 });
@@ -135,9 +135,9 @@ it("calls onCancel and resets the input field", () => {
   fireEvent.change(getByPlaceholderText("Enter Student Name"), {
     target: { value: "Lydia Miller-Jones" }
   });
-  
+
   fireEvent.click(getByText("Cancel"));
-  
+
   expect(queryByText(/student name cannot be blank/i)).toBeNull();
 
   expect(getByPlaceholderText("Enter Student Name")).toHaveValue("");

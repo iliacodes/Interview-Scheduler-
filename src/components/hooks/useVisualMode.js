@@ -9,7 +9,7 @@ const useVisualMode = function(initial) {
   const transition = function(newMode, replace = false) {
     !replace && setHistory(prev => [...prev, mode]);
     return setMode(newMode);
-    
+
   };
   // goes to the previous mode using `pop` => removes last element of history
   const back = function() {
