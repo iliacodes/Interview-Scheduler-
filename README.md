@@ -5,19 +5,25 @@
 ### Rest easy knowing that the development of this project included thorough testing using Jest, ensuring a stable and reliable experience for all users. Upgrade your scheduling game with Interview Scheduler.
 </br>
 
+# Links
+
+
 # Setup
 ## 1. Clone the ``` interview-scheduler ``` repository
 ```sh
 git clone https://github.com/iliacodes/interview-scheduler.git
 ```
+- View the scheduler repository [here.](https://github.com/iliacodes/interview-scheduler.git)
 
 </br>
 
-## 2. Clone the ```schedular-api``` repository
+## 2. Clone the ```scheduler-api``` repository
 ```sh
-git clone https://github.com/iliacodes/scheduler-api
-```
+git clone https://github.com/iliacodes/scheduler-api 
+``` 
+- View the api repository [here.](https://github.com/iliacodes/scheduler-api )
 </br>
+
 
 ## 3. Install dependencies in the ``` interview-scheduler/``` repository
 ```sh

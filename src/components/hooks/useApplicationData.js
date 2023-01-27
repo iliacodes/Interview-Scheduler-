@@ -44,7 +44,7 @@ export default function useApplicationData() {
 
 
   // function to delete the data from the API
-  const cancelInterview = async function(id) {
+  const cancelInterview = function(id) {
     const appointment = {
       ...state.appointments[id],
       interview: null
@@ -59,16 +59,14 @@ export default function useApplicationData() {
     const days = increaseSpots(state);
 
     //Delete request to database to pop cancelinterview data.
-    try {
-      await axios.delete(`/api/appointments/${id}`);
-      setState({
-        ...state,
-        appointments,
-        days
+      return axios.delete(`/api/appointments/${id}`)
+      .then(() => {
+        setState({
+          ...state,
+          appointments,
+          days
+        });
       });
-    } catch (error) {
-      return console.log(error);
-    }
   };
 
   return { state, setState, setDay, bookInterview, cancelInterview };

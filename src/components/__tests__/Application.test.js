@@ -37,7 +37,7 @@ describe("Application", () => {
       queryByText(day, "Monday")
     );
 
-    expect(getByText(day, "1 spot remaining")).toBeInTheDocument();
+    expect(getByText(day, "no spots remaining")).toBeInTheDocument();
   });
 });
 
@@ -70,7 +70,7 @@ it("loads data, cancels an interview and increases the spots remaining for Monda
   // 8. check that the DayListItem with the text "Monday" also has the text "1 spot remaining".
   const day = getAllByTestId(container, "day").find(day => queryByText(day, "Monday"));
 
-  expect(getByText(day, "1 spot remaining")).toBeInTheDocument();
+  expect(getByText(day, "2 spots remaining")).toBeInTheDocument();
 
 });
 
@@ -123,10 +123,14 @@ it("shows the delete error when failing to delete an existing appointment", asyn
   // 4. click the delete button
   fireEvent.click(queryByAltText(appointment, "Delete"));
 
+  await waitForElement(() => getByText(container, "Please confirm you would like to delete this appointment."));
+
   // 5. expect to be prompted to confirm deletion.
   expect(getByText(appointment, "Please confirm you would like to delete this appointment.")).toBeInTheDocument();
 
   // 6. click the confirm button.
   fireEvent.click(getByText(appointment, "Confirm"));
+
+  await waitForElement(() => getByText(container, "Error"))
 
 });

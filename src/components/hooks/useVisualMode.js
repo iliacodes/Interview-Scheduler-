@@ -13,7 +13,12 @@ const useVisualMode = function(initial) {
   };
   // goes to the previous mode using `pop` => removes last element of history
   const back = function() {
-    return setMode(history.pop());
+    if (history.length > 1) {
+      const newHis = [...history]
+      const lastMode = newHis.pop()
+      setHistory(newHis)
+      return setMode(lastMode);
+    }
   };
 
   return { mode, transition, back };
